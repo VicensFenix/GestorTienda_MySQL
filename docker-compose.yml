@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  mysql: 
+    image: mysql:8.0
+    container_name: gestortienda_mysql
+    resort: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - "3000:4000"
+    volumes:
+      - gestortienda_mysql_data:/var/lib/mysql
+      - ./init:/docker-entrypoint-initdb.d
+    networks:
+      - tienda_net
+
+volumes:
+  gestortienda_mysql_data:
+
+networks:
+  tienda_net:
