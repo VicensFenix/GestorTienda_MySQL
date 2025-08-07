@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   mysql: 
     image: mysql:8.0
@@ -11,7 +9,7 @@ services:
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     ports:
-      - "3000:4000"
+      - "3307:3306"
     volumes:
       - gestortienda_mysql_data:/var/lib/mysql
       - ./init:/docker-entrypoint-initdb.d
