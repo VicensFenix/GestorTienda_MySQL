@@ -1,1 +1,6 @@
 .env
+.vscode/
+*.session.sql
+gestortienda_mysql_data/
+node_modules/
+venv/
