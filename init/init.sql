@@ -5,19 +5,18 @@ CREATE TABLE administrador (
     usuario_admin VARCHAR(50) UNIQUE,
     password_admin VARCHAR(225) NOT NULL,
     fecha_creacion_admin DATETIME DEFAULT CURRENT_TIMESTAMP,
-    ultimo_login_admin DATATIME
+    ultimo_login_admin DATETIME
 );
 
 -- Tabla Empleado
-CREATE TABLE empleado(
+CREATE TABLE empleado (
     id_empleado INT AUTO_INCREMENT PRIMARY KEY,
     nombre_empleado VARCHAR(100) NOT NULL,
     usuario_empleado VARCHAR(50) UNIQUE,
     password_empleado VARCHAR(225) NOT NULL,
     fecha_creacion_empleado DATETIME DEFAULT CURRENT_TIMESTAMP,
-    ultimo_login_empleado DATATIME
+    ultimo_login_empleado DATETIME
 );
-
 
 -- Tabla CATEGORIA
 CREATE TABLE categoria (
@@ -49,12 +48,11 @@ CREATE TABLE formas_de_pago (
 );
 
 -- Tabla CAJA
-CREATE TABLE caja(
+CREATE TABLE caja (
     id_caja INT AUTO_INCREMENT PRIMARY KEY,
     fecha_apertura_caja DATE,
     hora_apertura_caja TIME,
     monto_inicial_caja DECIMAL(10,2) NOT NULL,
-    fecha_cierre_caja DECIMAL(10,2),
     fecha_cierre_caja DATE,
     hora_cierre_caja TIME,
     monto_final_caja DECIMAL(10,2) NOT NULL,
@@ -65,7 +63,7 @@ CREATE TABLE caja(
     id_admin INT NOT NULL,
     id_empleado INT,
     FOREIGN KEY (id_admin) REFERENCES administrador(id_admin),
-    FOREIGN KEY (id_empleo) REFERENCES empleado(id_empleado)
+    FOREIGN KEY (id_empleado) REFERENCES empleado(id_empleado)
 );
 
 -- Tabla VENTA
